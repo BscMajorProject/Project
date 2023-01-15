@@ -153,11 +153,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BSplitter.cpp" />
     <ClCompile Include="FBXPorter.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="_3DAPE.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BSplitter.h" />
+    <ClInclude Include="FBXPorter.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="_3DAPE.h" />
   </ItemGroup>

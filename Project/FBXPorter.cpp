@@ -1,8 +1,8 @@
+#include "FBXPorter.h"
 #include <fbxsdk.h>
-#include <string>
-#include <cstring>
 
-int Conversion()
+// called to Import File to MyScene
+int FBXPorter::Import(const char* ImportFile)
 {
     // Initialize the SDK manager
     FbxManager* lSdkManager = FbxManager::Create();
@@ -11,10 +11,7 @@ int Conversion()
     FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");
 
     // Initialize the importer
-    std::string IFile = "MyScene.fbx";
-    const char* charFile = IFile.c_str();
-
-    if (!lImporter->Initialize(charFile, -1, lSdkManager->GetIOSettings()))
+    if (!lImporter->Initialize(ImportFile, -1, lSdkManager->GetIOSettings()))
     {
         return 1;
     }
@@ -32,7 +29,7 @@ int Conversion()
     FbxExporter* lExporter = FbxExporter::Create(lSdkManager, "");
 
     // Initialize the exporter
-    if (!lExporter->Initialize("MyExportedScene.fbx", -1, lSdkManager->GetIOSettings()))
+    if (!lExporter->Initialize("3DAPE.fbx", -1, lSdkManager->GetIOSettings()))
     {
         return 1;
     }
@@ -48,3 +45,10 @@ int Conversion()
 
     return 0;
 }
+
+// After Editing Animation inside MyScene.fbx, It will export to a user specified directory
+int FBXPorter::Export(const char* EXportFile)
+{
+    return 0;
+}
+
