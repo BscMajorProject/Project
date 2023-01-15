@@ -29,7 +29,7 @@ int FBXPorter::Import(const char* ImportFile)
     FbxExporter* lExporter = FbxExporter::Create(lSdkManager, "");
 
     // Initialize the exporter
-    if (!lExporter->Initialize("3DAPE.fbx", -1, lSdkManager->GetIOSettings()))
+    if (!lExporter->Initialize("_3DAPE.fbx", -1, lSdkManager->GetIOSettings()))
     {
         return 1;
     }

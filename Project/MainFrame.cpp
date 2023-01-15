@@ -115,10 +115,12 @@ void MainFrame::OnImportFbx(wxCommandEvent& evt)
 	if (FbxDialog.ShowModal() == wxID_OK)
 	{
 		FBXPorter* FbxImporter = new FBXPorter;
+
+		// Getting the path from selected file 
 		wxString IPath = FbxDialog.GetPath();
+
 		// ToUTF8 was used as other Conversions didn't work
 		const char* ImportFile = IPath.ToUTF8();
-		const char* EFile = "MyScene.fbx";
 
 		// Assigning value of Conversion to Valid as for future to check the armature
 		int Valid = FbxImporter->Import(ImportFile);
@@ -128,9 +130,11 @@ void MainFrame::OnImportFbx(wxCommandEvent& evt)
 			wxMessageBox("Corrupted File or Invalid Import File!", "Error");
 		}
 
-		// Clearing theStorage
+		// Clearing the Storage
 		FbxImporter = nullptr;
+		ImportFile = nullptr;
 		delete FbxImporter;
+		delete ImportFile;
 
 	}
 }
